@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="style.css">
+  <title>Calculator</title>
+</head>
+<body>
+  <h1>Deposit Calculator</h1>
+  <form class="accounter__create">
+    <h2>Create a new banking product (deposit)</h2>
+    <label>Name of the deposit
+      <input type="text" name="name" id="name" required>
+    </label>
+    <label>Interest rate
+      <input type="number" name="rate" id="rate" required>
+    </label>
+    <label>Number of capitalizations (per year)
+      <input type="number" name="numberperyear" id="capitaliz" required>
+    </label>
+    <input type="button" value="CREATE" id="submit">
+  </form>
+
+  <form class="user__calc" hidden>
+    <h2>Select options</h2>
+    <label>Deposit amount
+      <input type="number" name="amount" class="sum" required>
+    </label>
+    <label>Deposit term (month)
+      <input type="number" name="term" class="period" required>
+    </label>
+    <input type="button" value="CALCULATE" class="calc">
+    <span class="result"></span>
+  </form>
+
+  <script src="script.js"></script>
+</body>
+</html>
