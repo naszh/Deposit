@@ -20,6 +20,7 @@ label {
   display: block;
   margin: 5px auto;
   width: 200px;
+  cursor: pointer;
 }
 
 div {
@@ -35,4 +36,5 @@ div span {
   margin-left: 20px;
   font-size: 18px;
   color: crimson;
+  cursor: pointer;
 }
