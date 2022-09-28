@@ -9,11 +9,25 @@ class Product {
 }
 
 function getProduct() {
-  prods.push(new Product (
-    document.querySelector('#name').value,
-    document.querySelector('#rate').value,
-    document.querySelector('#capitaliz').value,
-  ))
+  if (!validateNameProd(document.querySelector('#name').value)) {
+    prods.push(new Product (
+      document.querySelector('#name').value,
+      document.querySelector('#rate').value,
+      document.querySelector('#capitaliz').value,
+    ));
+    cloneForm();
+  }
+}
+
+function validateNameProd(name) {
+  let isName = false;
+  prods.forEach((el) => {
+    if (el.name === name) {
+      isName = true;
+      alert('This name already exists!');
+    }
+  })
+  return isName;
 }
 
 let formId;
@@ -36,7 +50,7 @@ function cloneForm() {
     formId = clonedForm.className;
 
     document.querySelector(`.${formId} .calc`).addEventListener('click', calculate);
-  });
+  }, { once: true });
 }
 
 function getValues() {
@@ -67,4 +81,17 @@ function getResult(value) {
 }
 
 document.querySelector('#submit').addEventListener('click', getProduct);
-document.querySelector('#submit').addEventListener('click', cloneForm);
+
+// localStorage
+const firstDeposit = {
+  name: 'Cool',
+  rate: 10,
+  capitaliz: 4,
+}
+
+localStorage.setItem('deposit1', JSON.stringify(firstDeposit));
+const deposit1 = localStorage.getItem('deposit1');
+JSON.parse(deposit1);
+
+prods.push(firstDeposit);
+cloneForm();
