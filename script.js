@@ -67,8 +67,7 @@ function calculate() {
     let obj = Object.values(prods[i]);
     obj.forEach((el, i, arr) => {
       if (formId === obj[i]) {
-        const calc = (values[0] * Math.pow(1 + obj[i + 1] / 100 / obj[i + 2]
-                                          , values[1] * obj[i + 2])).toFixed(2);
+        const calc = (values[0] * ((1 + obj[i + 1] / 100) / (12 / obj[i + 2])) ** (values[1] / obj[i + 2])).toFixed(2);
         // console.log (`${obj[i]} ${calc}`);
         getResult(calc);
       }
